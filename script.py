@@ -21,7 +21,7 @@ def lambda_handler(event, context):
     sns = boto3.client('sns')
     alerts = []
 
-    # Temperature Alerts
+    # For temperature Alerts
     if temp > 38:
         alerts.append(f"🔥 Extreme Heat Alert! It's {temp}°C in {city}. Avoid going outside.")
     elif 35 < temp <= 38:
@@ -31,19 +31,19 @@ def lambda_handler(event, context):
     elif 5 <= temp < 10:
         alerts.append(f"🥶 Cold Weather Alert! It's {temp}°C in {city}. Dress warmly!")
 
-    # Humidity Alerts
+    # For Humidity Alerts
     if humidity > 85:
         alerts.append(f"💧 High Humidity Alert! Humidity is {humidity}% — air feels heavy.")
     elif humidity < 25:
         alerts.append(f"🌵 Low Humidity Alert! Humidity is {humidity}%. Skin may feel dry.")
 
-    # Wind Alerts
+    # For Wind Alerts
     if wind_speed > 40:
         alerts.append(f"🌪️ Strong Wind Alert! Wind speed is {wind_speed:.1f} km/h. Secure loose objects.")
     elif 25 < wind_speed <= 40:
         alerts.append(f"💨 Windy Conditions! Wind speed: {wind_speed:.1f} km/h.")
 
-    # Condition Alerts
+    # For condition Alerts
     if "rain" in condition:
         alerts.append(f"🌧️ Rain Alert! {condition.title()} in {city}. Carry an umbrella.")
     elif "drizzle" in condition:
@@ -59,7 +59,7 @@ def lambda_handler(event, context):
     elif "cloud" in condition:
         alerts.append(f"☁️ Cloudy Skies! Expect mild conditions in {city}.")
 
-    # Summary
+    # Weather Summary
     summary = (
         f"📍 Weather Summary for {city}\n"
         f"🌡️ Temperature: {temp}°C (Feels like {feels_like}°C)\n"
