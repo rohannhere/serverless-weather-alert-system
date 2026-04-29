@@ -188,3 +188,7 @@ Manual Test
 - No errors in logs
 - 📧 Email notification received via SNS
 
+---
+
+![Alt Text](screenshots/mail-alert.png)
+
